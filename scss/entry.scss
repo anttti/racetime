@@ -1,8 +1,9 @@
 .entry {
+    padding: 0.2rem;
     cursor: pointer;
 
     &:hover {
-        background: yellow;
+        background: lighten(yellow, 30%);
     }
 }
 
