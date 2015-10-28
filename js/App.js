@@ -43,6 +43,11 @@ const App = React.createClass({
         this.firebaseRefs["entries"].push(this.state.newEntry);
         this.setState({ newEntry: this.getInitialNewEntryState() });
     },
+    onRemoveEntry(e) {
+        if (confirm("Remove entry?")) {
+            this.firebaseRefs["entries"].child(e).remove();
+        }
+    },
     render() {
         const entries = this.state.entries
             .map(entry => {
@@ -52,11 +57,13 @@ const App = React.createClass({
                     time: moment(entry.time, "mm:ss:SS")
                 };
             })
-            .sort((a, b) => a.time.valueOf() > b.time.valueOf());
+            .sort((a, b) => a.time.valueOf() > b.time.valueOf())
+            .slice(0, 10);
 
         return (
             <div>
-                <EntryList entries={entries} />
+                <h1>Top 10</h1>
+                <EntryList entries={entries} onRemoveEntry={this.onRemoveEntry} />
                 <Input
                     onChangeTime={this.onChangeTime}
                     onChangeName={this.onChangeName}
