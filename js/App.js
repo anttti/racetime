@@ -3,6 +3,7 @@ import "../scss/app.scss";
 import React from "react";
 import Firebase from "firebase";
 import ReactFireMixin from "reactfire";
+import moment from "moment";
 
 import EntryList from "./EntryList";
 import Input from "./Input";
@@ -34,13 +35,28 @@ const App = React.createClass({
     },
     onSubmit(e) {
         e.preventDefault();
+        const time = moment(this.state.newEntry.time, "mm:ss:SS");
+        if (!time.isValid()) {
+            alert("Not a valid time!");
+            return;
+        }
         this.firebaseRefs["entries"].push(this.state.newEntry);
         this.setState({ newEntry: this.getInitialNewEntryState() });
     },
     render() {
+        const entries = this.state.entries
+            .map(entry => {
+                return {
+                    key: entry[".key"],
+                    name: entry.name,
+                    time: moment(entry.time, "mm:ss:SS")
+                };
+            })
+            .sort((a, b) => a.time.valueOf() > b.time.valueOf());
+
         return (
             <div>
-                <EntryList entries={this.state.entries} />
+                <EntryList entries={entries} />
                 <Input
                     onChangeTime={this.onChangeTime}
                     onChangeName={this.onChangeName}

@@ -5,7 +5,7 @@ const EntryList = ({ entries }) => {
     return (
         <ul>
             {entries.map(entry =>
-                <Entry key={entry[".key"]} name={entry.name} time={entry.time} />
+                <Entry key={entry.key} name={entry.name} time={entry.time} />
             )}
         </ul>
     );

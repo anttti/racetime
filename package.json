@@ -15,6 +15,7 @@
   "dependencies": {
     "firebase": "^2.3.1",
     "immutable": "^3.7.5",
+    "moment": "^2.10.6",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
     "reactfire": "^0.5.1"
