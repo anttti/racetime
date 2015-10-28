@@ -1,0 +1,1 @@
+*{margin:0;padding:0}body{font-family:sans-serif;padding:2rem}#app{max-width:500px;margin:0 auto}h1{margin-bottom:1rem}.entry-list,.loading{margin-bottom:1rem}.loading{opacity:.6}.entry{padding:.2rem;cursor:pointer}.entry:hover{background:#ff9}.entry__time{margin-right:.5rem}.entry__name,.entry__time{display:inline-block}.input,.input__submit{padding:.3rem;font-size:1.2rem}
