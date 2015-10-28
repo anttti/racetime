@@ -1,11 +1,16 @@
 .entry {
-    display: flex;
+    cursor: pointer;
+
+    &:hover {
+        background: yellow;
+    }
 }
 
     .entry__time {
-
+        display: inline-block;
+        margin-right: 0.5rem;
     }
 
     .entry__name {
-
+        display: inline-block;
     }
