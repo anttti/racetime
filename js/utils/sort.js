@@ -1,17 +1,15 @@
-import moment from "moment";
-
 const Sort = {
     desc: entries => {
         return entries
+            .sort((a, b) => a.time > b.time)
+            .slice(0, 10)
             .map(entry => {
                 return {
                     key: entry[".key"],
                     name: entry.name,
-                    time: moment(entry.time, "mm:ss:SS")
+                    time: entry.time
                 };
-            })
-            .sort((a, b) => a.time.valueOf() > b.time.valueOf())
-            .slice(0, 10);
+            });
     }
 };
 
