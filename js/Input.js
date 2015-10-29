@@ -11,12 +11,30 @@ const isValidInput = (t, n) => {
 }
 
 const Input = props => {
+    let timeStr = "00:00.00";
+    if (props.time !== "") {
+        const time = moment(props.time, "mm:ss:SS");
+        if (!time.isValid()) {
+            timeStr = "Invalid time!";
+        } else {
+            timeStr = time.format("mm:ss.SS");
+        }
+    }
+
+    let previewStr = timeStr;
+    if (props.name.length > 0) {
+        previewStr += ": " + props.name;
+    }
+
     return (
-        <form className="form" onSubmit={props.onSubmit}>
-            <input className="input" type="text" placeholder="time" onChange={props.onChangeTime} value={props.time} />
-            <input className="input" type="text" placeholder="name" onChange={props.onChangeName} value={props.name} />
-            <input className="input__submit" type="submit" onClick={props.onSubmit} disabled={!isValidInput(props.time, props.name)} />
-        </form>
+        <div>
+            <p className="preview">{previewStr}</p>
+            <form className="form" onSubmit={props.onSubmit}>
+                <input className="input" type="number" placeholder="time" onChange={props.onChangeTime} value={props.time} />
+                <input className="input" type="text" placeholder="name" onChange={props.onChangeName} value={props.name} />
+                <input className="input__submit" type="submit" onClick={props.onSubmit} disabled={!isValidInput(props.time, props.name)} />
+            </form>
+        </div>
     );
 };
 
