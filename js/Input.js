@@ -12,7 +12,7 @@ const isValidInput = (t, n) => {
 
 const Input = props => {
     return (
-        <form onSubmit={props.onSubmit}>
+        <form className="form" onSubmit={props.onSubmit}>
             <input className="input" type="text" placeholder="time" onChange={props.onChangeTime} value={props.time} />
             <input className="input" type="text" placeholder="name" onChange={props.onChangeName} value={props.name} />
             <input className="input__submit" type="submit" onClick={props.onSubmit} disabled={!isValidInput(props.time, props.name)} />

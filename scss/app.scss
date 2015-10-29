@@ -4,15 +4,32 @@
 }
 
 body {
-    font-family: sans-serif;
-    padding: 2rem;
+    font-family: "Helvetica Neue", sans-serif;
+    background: url(../images/car.jpg) no-repeat center center fixed;
+    background-size: cover;
+    font-size: 1.5rem;
 }
 
-#app {
+.block {
     max-width: 500px;
-    margin: 0 auto;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
 }
 
-h1 {
-    margin-bottom: 1rem;
+.header {
+    padding: 1rem;
+    text-align: center;
+    background: linear-gradient(lighten(#a21e2b, 10%), #a21e2b);
+    color: white;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    h1 {
+        text-transform: uppercase;
+    }
+}
+
+.logo {
+    max-width: 350px;
+    height: auto;
 }

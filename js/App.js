@@ -7,6 +7,7 @@ import moment from "moment";
 
 import EntryList from "./EntryList";
 import Input from "./Input";
+import Sort from "./utils/sort";
 
 const App = React.createClass({
     mixins: [ReactFireMixin],
@@ -40,7 +41,11 @@ const App = React.createClass({
             alert("Not a valid time!");
             return;
         }
-        this.firebaseRefs["entries"].push(this.state.newEntry);
+        const newEntry = {
+            name: this.state.newEntry.name,
+            time: time.format("mm:ss:SS")
+        };
+        this.firebaseRefs["entries"].push(newEntry);
         this.setState({ newEntry: this.getInitialNewEntryState() });
     },
     onRemoveEntry(e) {
@@ -49,27 +54,25 @@ const App = React.createClass({
         }
     },
     render() {
-        const entries = this.state.entries
-            .map(entry => {
-                return {
-                    key: entry[".key"],
-                    name: entry.name,
-                    time: moment(entry.time, "mm:ss:SS")
-                };
-            })
-            .sort((a, b) => a.time.valueOf() > b.time.valueOf())
-            .slice(0, 10);
+        const entries = Sort.desc(this.state.entries);
 
         return (
             <div>
-                <h1>Top 10</h1>
-                <EntryList entries={entries} onRemoveEntry={this.onRemoveEntry} />
-                <Input
-                    onChangeTime={this.onChangeTime}
-                    onChangeName={this.onChangeName}
-                    onSubmit={this.onSubmit}
-                    time={this.state.newEntry.time}
-                    name={this.state.newEntry.name} />
+                <header className="header">
+                    <img src="images/tammerforce.png" className="logo" />
+                    <h1>Top 10</h1>
+                </header>
+                <div className="block">
+                    <EntryList entries={entries} onRemoveEntry={this.onRemoveEntry} />
+                </div>
+                <div className="block">
+                    <Input
+                        onChangeTime={this.onChangeTime}
+                        onChangeName={this.onChangeName}
+                        onSubmit={this.onSubmit}
+                        time={this.state.newEntry.time}
+                        name={this.state.newEntry.name} />
+                </div>
             </div>
         );
     }

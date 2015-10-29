@@ -1,9 +1,28 @@
-.input {
-    padding: 0.3rem;
-    font-size: 1.2rem;
+.form {
+    @media screen and (min-width: 570px) {
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
+.input,
 .input__submit {
     padding: 0.3rem;
     font-size: 1.2rem;
+
+    @media screen and (max-width: 570px) {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+}
+
+.input__submit {
+    border: 0;
+    background: white;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+
+    &:active {
+        opacity: 0.8;
+    }
 }
