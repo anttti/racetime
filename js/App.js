@@ -21,7 +21,7 @@ const App = React.createClass({
         };
     },
     getInitialNewEntryState() {
-        return { name: "", time: "" };
+        return { name: "", time: "", date: null };
     },
     onChangeTime(e) {
         this.setProp("time", e.target.value.substr(0,7));
@@ -36,16 +36,16 @@ const App = React.createClass({
     },
     onSubmit(e) {
         e.preventDefault();
-        
+
         if (!Time.isValid(this.state.newEntry.time)) {
             alert("Not a valid time!");
             return;
         }
         const newEntry = {
             name: this.state.newEntry.name,
-            time: Time.fromString(this.state.newEntry.time)
+            time: Time.fromString(this.state.newEntry.time),
+            date: Date.now()
         }
-
         this.firebaseRefs["entries"].push(newEntry);
         this.setState({ newEntry: this.getInitialNewEntryState() });
     },
