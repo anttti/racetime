@@ -1,3 +1,5 @@
+import Time from "./time";
+
 const Sort = {
     desc: entries => {
         return entries
@@ -7,7 +9,7 @@ const Sort = {
                 return {
                     key: entry[".key"],
                     name: entry.name,
-                    time: entry.time
+                    time: Time.toString(entry.time)
                 };
             });
     }

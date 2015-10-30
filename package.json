@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --compilers js:babel/register test/",
-    "start": "webpack-dev-server --content-base build/",
+    "start": "webpack-dev-server",
     "build": "./node_modules/.bin/webpack -p --progress --config webpack.build.config.babel.js",
     "lint": "esw -w js"
   },

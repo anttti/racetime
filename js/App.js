@@ -3,11 +3,11 @@ import "../scss/app.scss";
 import React from "react";
 import Firebase from "firebase";
 import ReactFireMixin from "reactfire";
-import moment from "moment";
 
 import EntryList from "./EntryList";
 import Input from "./Input";
 import Sort from "./utils/sort";
+import Time from "./utils/time";
 
 const App = React.createClass({
     mixins: [ReactFireMixin],
@@ -24,7 +24,7 @@ const App = React.createClass({
         return { name: "", time: "" };
     },
     onChangeTime(e) {
-        this.setProp("time", e.target.value);
+        this.setProp("time", e.target.value.substr(0,7));
     },
     onChangeName(e) {
         this.setProp("name", e.target.value);
@@ -36,15 +36,16 @@ const App = React.createClass({
     },
     onSubmit(e) {
         e.preventDefault();
-        const time = moment(this.state.newEntry.time, "mm:ss:SS");
-        if (!time.isValid()) {
+        
+        if (!Time.isValid(this.state.newEntry.time)) {
             alert("Not a valid time!");
             return;
         }
         const newEntry = {
             name: this.state.newEntry.name,
-            time: time.format("mm:ss:SS")
-        };
+            time: Time.fromString(this.state.newEntry.time)
+        }
+
         this.firebaseRefs["entries"].push(newEntry);
         this.setState({ newEntry: this.getInitialNewEntryState() });
     },
