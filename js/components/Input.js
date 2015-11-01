@@ -1,10 +1,10 @@
-import "../scss/input.scss";
+import "../../scss/input.scss";
 
 import React from "react";
-import Time from "./utils/time";
+import Time from "../utils/time";
 
 const Input = props => {
-    const previewStr = Time.toString(Time.fromString(props.time)); //Time.toString(parseInt(props.time, 10));
+    const previewStr = Time.toString(Time.fromString(props.time));
 
     return (
         <div>
