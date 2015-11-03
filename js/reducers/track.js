@@ -5,9 +5,7 @@ import {
     RECEIVE_TRACK
 } from "../constants/types";
 
-const defaultState = Immutable.Map({
-    tracks: Immutable.List()
-});
+const defaultState = Immutable.fromJS({});
 
 export default function track(state = defaultState, action) {
     switch (action.type) {
@@ -15,15 +13,8 @@ export default function track(state = defaultState, action) {
             return state;
         case RECEIVE_TRACK:
             const trackId = action.payload.get("id");
-            const trackToUpdateIndex = state
-                .get("tracks")
-                .findIndex(track => track.get("id") === trackId, 10);
-
-            if (trackToUpdateIndex === -1) {
-                return state.set("tracks", state.get("tracks").push(action.payload.get("track")));
-            } else {
-                return state.set("tracks", state.get("tracks").set(trackToUpdateIndex, action.payload.get("track")));
-            }
+            const track = action.payload.get("track");
+            return state.set(trackId, track);
         default:
             return state;
     }

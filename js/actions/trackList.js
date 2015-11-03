@@ -17,27 +17,23 @@ const receiveTrackList = trackList => {
     };
 };
 
-const shouldFetchTrackList = () => {
-    return true;
-};
-
 const fetchTrackList = () => {
     return (dispatch, getState) => {
         dispatch(requestTrackList());
-
-        if (shouldFetchTrackList(getState())) {
-            return fetch(endpoints.trackList())
-                .then(req => req.json())
-                .then(result => dispatch(receiveTrackList(result.tracks)))
-                .catch(e => {
-                    console.error(e);
-                });
-        } else {
-            // TODO: Return from state
-        }
+        return fetch(endpoints.trackList())
+            .then(req => req.json())
+            .then(result => dispatch(receiveTrackList(result.tracks)))
+            .catch(e => {
+                console.error(e);
+            });
     };
 };
 
+const nextTrack = () => {
+    return { type: types.NEXT_TRACK };
+};
+
 export default {
-    fetchTrackList
+    fetchTrackList,
+    nextTrack
 };
