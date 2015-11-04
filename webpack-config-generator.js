@@ -6,6 +6,7 @@ const generator = options => {
         entry: "./js/index.js",
         output: {
             path: __dirname + "/build",
+            publicPath: "/",
             filename: "bundle.js"
         },
         module: {
