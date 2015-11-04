@@ -1,3 +1,4 @@
+import Immutable from "immutable";
 // Configuration for redux-logger (automatically unwrap Immutable stuff)
 
 export default {

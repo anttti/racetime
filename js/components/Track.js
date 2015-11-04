@@ -1,3 +1,5 @@
+import "../../scss/track.scss";
+
 import React from "react";
 
 import TrackActions from "../actions/tracks";
@@ -34,9 +36,9 @@ const Track = React.createClass({
         }
 
         return (
-            <div className="block">
-                <h1>{track.get("name")}</h1>
-                <h2>{track.get("carName")} - {track.get("gameName")}</h2>
+            <div className="block track">
+                <h1 className="track__title">{track.get("name")}</h1>
+                <h2 className="track__subtitle">{track.get("carName")} - {track.get("gameName")}</h2>
                 <EntryList entries={track.get("times").toJS()} />
             </div>
         );
