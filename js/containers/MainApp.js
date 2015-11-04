@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux";
 import { Link } from "react-router";
 
 import TrackListActions from "../actions/trackList";
-import TrackActions from "../actions/track";
+import TrackActions from "../actions/tracks";
 import Track from "../components/Track";
 
 const MainApp = React.createClass({
@@ -41,7 +41,7 @@ const select = state => {
     return {
         trackList: state.trackList.get("trackList"),
         currentIndex: state.trackList.get("currentlyShowingTrackIndex"),
-        tracks: state.track
+        tracks: state.tracks
     };
 };
 

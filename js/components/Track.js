@@ -1,6 +1,6 @@
 import React from "react";
 
-import TrackActions from "../actions/track";
+import TrackActions from "../actions/tracks";
 import EntryList from "../components/EntryList";
 
 const Track = React.createClass({

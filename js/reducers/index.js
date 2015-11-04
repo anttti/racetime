@@ -1,12 +1,12 @@
 import { combineReducers } from "redux";
 import { routerStateReducer } from "redux-router";
 
-import track from "./track";
+import tracks from "./tracks";
 import trackList from "./trackList";
 
 const rootReducer = combineReducers({
     router: routerStateReducer,
-    track,
+    tracks,
     trackList
 });
 
