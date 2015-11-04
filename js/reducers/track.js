@@ -12,9 +12,7 @@ export default function track(state = defaultState, action) {
         case REQUEST_TRACK:
             return state;
         case RECEIVE_TRACK:
-            const trackId = action.payload.get("id");
-            const track = action.payload.get("track");
-            return state.set(trackId, track);
+            return state.set(action.payload.id, action.payload.track);
         default:
             return state;
     }

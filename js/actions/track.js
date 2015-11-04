@@ -1,4 +1,3 @@
-import Immutable from "immutable";
 import fetch from "isomorphic-fetch";
 
 import * as types from "../constants/types";
@@ -7,19 +6,19 @@ import endpoints from "../constants/endpoints";
 const requestTrack = id => {
     return {
         type: types.REQUEST_TRACK,
-        payload: Immutable.fromJS({
+        payload: {
             id: id
-        })
+        }
     };
 };
 
 const receiveTrack = track => {
     return {
         type: types.RECEIVE_TRACK,
-        payload: Immutable.fromJS({
+        payload: {
             id: track.id,
             track: track
-        })
+        }
     };
 };
 

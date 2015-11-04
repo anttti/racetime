@@ -11,9 +11,9 @@ const requestTrackList = () => {
 const receiveTrackList = trackList => {
     return {
         type: types.RECEIVE_TRACKLIST,
-        payload: Immutable.fromJS({
+        payload: {
             trackList: trackList
-        })
+        }
     };
 };
 
