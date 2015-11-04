@@ -15,7 +15,6 @@ import routes from "./routes";
 import rootReducer from "./reducers";
 
 import * as TrackActions from "./actions/track";
-import App from "./containers/App";
 
 const createStoreWithMiddleware = applyMiddleware(
     thunkMiddleware,
