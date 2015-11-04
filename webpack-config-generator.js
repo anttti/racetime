@@ -3,7 +3,7 @@ import ExtractTextPlugin from "extract-text-webpack-plugin";
 
 const generator = options => {
     const common = {
-        entry: "./js/index.js",
+        entry: "./js/index.jsx",
         output: {
             path: __dirname + "/build",
             publicPath: "/",
@@ -11,10 +11,13 @@ const generator = options => {
         },
         module: {
             loaders: [
-                { test: /\.js$/, loaders: options.jsLoaders, exclude: /node_modules/ },
+                { test: /\.(js|jsx)$/, loaders: options.jsLoaders, exclude: /node_modules/ },
                 { test: /\.scss$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer-loader!sass-loader") },
                 { test: /\.(jpg|png)$/, loader: "file-loader" }
             ]
+        },
+        resolve: {
+            extensions: ['', '.js', '.jsx']
         },
         plugins: [
             new ExtractTextPlugin("styles.css", { allChunks: true })
