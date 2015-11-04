@@ -12,7 +12,7 @@ export default function track(state = defaultState, action) {
         case REQUEST_TRACK:
             return state;
         case RECEIVE_TRACK:
-            return state.set(action.payload.id, action.payload.track);
+            return state.set(action.payload.id, Immutable.fromJS(action.payload.track));
         default:
             return state;
     }

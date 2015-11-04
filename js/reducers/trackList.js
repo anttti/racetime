@@ -16,7 +16,7 @@ export default function trackList(state = defaultState, action) {
         case REQUEST_TRACKLIST:
             return state;
         case RECEIVE_TRACKLIST:
-            return state.set("trackList", action.payload.trackList);
+            return state.set("trackList", Immutable.fromJS(action.payload.trackList));
         case NEXT_TRACK:
             const trackListSize = state.get("trackList").size;
             if (trackListSize === 0) {

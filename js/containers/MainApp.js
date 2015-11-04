@@ -38,7 +38,6 @@ const MainApp = React.createClass({
 });
 
 const select = state => {
-    // debugger
     return {
         trackList: state.trackList.get("trackList"),
         currentIndex: state.trackList.get("currentlyShowingTrackIndex"),
