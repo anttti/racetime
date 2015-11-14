@@ -1,4 +1,4 @@
-import "../../scss/entry-list.scss";
+import "scss/entry-list.scss";
 
 import React from "react";
 import Entry from "./Entry";

@@ -5,8 +5,8 @@ import {
     RECEIVE_CONTESTS,
     ERROR_RECEIVING_CONTESTS,
     NEXT_CONTEST
-} from "../constants/types";
-import endpoints from "../constants/endpoints";
+} from "constants/types";
+import endpoints from "constants/endpoints";
 
 const fetchContests = () => {
     return dispatch => {

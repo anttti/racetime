@@ -1,6 +1,5 @@
 import "babel-core/polyfill";
 
-import Immutable from "immutable";
 import React from "react";
 import ReactDOM from "react-dom";
 import { createStore, applyMiddleware, compose } from "redux";
@@ -10,8 +9,8 @@ import { Provider } from "react-redux";
 import { reduxReactRouter } from "redux-router";
 import createHistory from "history/lib/createBrowserHistory";
 import routes from "./routes";
-import loggerConfig from "./utils/loggerConfig";
-import rootReducer from "./reducers";
+import loggerConfig from "utils/loggerConfig";
+import rootReducer from "reducers";
 
 const createStoreWithMiddleware = applyMiddleware(
     thunkMiddleware,

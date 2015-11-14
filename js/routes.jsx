@@ -2,10 +2,10 @@ import React from "react";
 import { Route, IndexRoute } from "react-router";
 import { ReduxRouter } from "redux-router";
 
-import MainApp from "./containers/MainApp";
-import CarouselView from "./containers/CarouselView";
-import SingleView from "./containers/SingleView";
-import ContestsActions from "./actions/contests";
+import MainApp from "containers/MainApp";
+import CarouselView from "containers/CarouselView";
+import SingleView from "containers/SingleView";
+import ContestsActions from "actions/contests";
 
 let carouselInterval;
 

@@ -1,8 +1,8 @@
-import "../../scss/contest.scss";
+import "scss/contest.scss";
 
 import React from "react";
 
-import EntryList from "../components/EntryList";
+import EntryList from "components/EntryList";
 
 const Contest = ({ contest }) => {
     if (!contest) {

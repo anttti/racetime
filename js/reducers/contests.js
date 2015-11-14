@@ -4,7 +4,7 @@ import {
     REQUEST_CONTESTS,
     RECEIVE_CONTESTS,
     NEXT_CONTEST
-} from "../constants/types";
+} from "constants/types";
 
 const defaultState = Immutable.fromJS({
     list: [],

@@ -1,8 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import ContestsActions from "../actions/contests";
-import Contest from "../components/Contest";
+import Contest from "components/Contest";
 
 const CarouselView = React.createClass({
     render() {

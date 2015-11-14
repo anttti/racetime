@@ -1,7 +1,7 @@
-import "../../scss/entry.scss";
+import "scss/entry.scss";
 
 import React from "react";
-import Time from "../utils/time";
+import Time from "utils/time";
 
 const Entry = ({ time, name }) => {
     return (

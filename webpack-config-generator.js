@@ -1,3 +1,4 @@
+import path from "path";
 import ExtractTextPlugin from "extract-text-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 
@@ -17,7 +18,18 @@ const generator = options => {
             ]
         },
         resolve: {
-            extensions: ["", ".js", ".jsx"]
+            extensions: ["", ".js", ".jsx"],
+            alias: {
+                /* eslint-disable */
+                actions: path.join(__dirname, "js/actions"),
+                components: path.join(__dirname, "js/components"),
+                constants: path.join(__dirname, "js/constants"),
+                containers: path.join(__dirname, "js/containers"),
+                reducers: path.join(__dirname, "js/reducers"),
+                utils: path.join(__dirname, "js/utils"),
+                scss: path.join(__dirname, "scss")
+                /* eslint-enable */
+            }
         },
         plugins: [
             new ExtractTextPlugin("styles.css", { allChunks: true }),
