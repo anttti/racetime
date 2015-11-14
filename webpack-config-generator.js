@@ -1,11 +1,10 @@
-import webpack from "webpack";
 import ExtractTextPlugin from "extract-text-webpack-plugin";
 
 const generator = options => {
     const common = {
         entry: "./js/index.jsx",
         output: {
-            path: __dirname + "/build",
+            path: __dirname + "/build", // eslint-disable-line
             publicPath: "/",
             filename: "bundle.js"
         },
@@ -17,7 +16,7 @@ const generator = options => {
             ]
         },
         resolve: {
-            extensions: ['', '.js', '.jsx']
+            extensions: ["", ".js", ".jsx"]
         },
         plugins: [
             new ExtractTextPlugin("styles.css", { allChunks: true })
