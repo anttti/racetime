@@ -2,6 +2,6 @@
 const ROOT = "http://localhost:3000";
 
 export default {
-    contests: () => `${ROOT}/v1/contest`,
-    contest: id => `${ROOT}/v1/contest/${id}`
+    leaderboards: () => `${ROOT}/v1/leaderboard`,
+    leaderboard: id => `${ROOT}/v1/leaderboard/${id}`
 };

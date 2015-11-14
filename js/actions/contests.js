@@ -11,9 +11,9 @@ import endpoints from "constants/endpoints";
 const fetchContests = () => {
     return dispatch => {
         dispatch({ type: REQUEST_CONTESTS });
-        return fetch(endpoints.contests())
+        return fetch(endpoints.leaderboards())
             .then(req => req.json())
-            .then(result => dispatch({ type: RECEIVE_CONTESTS, payload: result.contests }))
+            .then(result => dispatch({ type: RECEIVE_CONTESTS, payload: result.leaderboards }))
             .catch(e => dispatch({ type: ERROR_RECEIVING_CONTESTS, error: true, payload: e.message }));
     };
 };
