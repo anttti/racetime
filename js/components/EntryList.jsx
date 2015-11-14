@@ -9,8 +9,8 @@ const EntryList = ({ entries }) => {
     }
     return (
         <ol className="entry-list">
-            {entries.map(entry =>
-                <Entry key={entry.id}
+            {entries.map((entry, index) =>
+                <Entry key={index}
                     name={entry.name}
                     time={entry.time} />
             )}

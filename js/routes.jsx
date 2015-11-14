@@ -3,16 +3,31 @@ import { Route, IndexRoute } from "react-router";
 import { ReduxRouter } from "redux-router";
 
 import MainApp from "./containers/MainApp";
-import TrackListActions from "./actions/trackList";
+import CarouselView from "./containers/CarouselView";
+import SingleView from "./containers/SingleView";
+import ContestsActions from "./actions/contests";
+
+let carouselInterval;
 
 export default store => {
     const onLoadApp = () => {
-        store.dispatch(TrackListActions.fetchTrackList());
+        store.dispatch(ContestsActions.fetchContests());
+    };
+
+    const onStartCarousel = () => {
+        carouselInterval = setInterval(() => store.dispatch(ContestsActions.nextContest()), 5000);
+    };
+
+    const onLeaveCarousel = () => {
+        clearInterval(carouselInterval);
     };
 
     return (
         <ReduxRouter>
-            <Route path="/" component={MainApp} onEnter={onLoadApp} />
+            <Route path="/" component={MainApp} onEnter={onLoadApp}>
+                <IndexRoute component={CarouselView} onEnter={onStartCarousel} onLeave={onLeaveCarousel} />
+                <Route path=":id" component={SingleView} />
+            </Route>
         </ReduxRouter>
     );
 };
