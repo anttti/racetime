@@ -1,4 +1,15 @@
-.track__subtitle {
-    font-size: 1.4rem;
-    margin: 0 0 0.4rem 0;
+.contest-header__title {
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+}
+
+.contest-header__subtitle {
+    opacity: 0.4;
+    font-weight: normal;
+}
+
+.contest-header {
+    padding: 1rem 1rem;
+    background: hsl(0,0,20);
 }

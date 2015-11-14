@@ -10,11 +10,15 @@ const Contest = ({ contest }) => {
     }
 
     return (
-        <div className="block contest">
-            <h1 className="contest__title">{contest.track}</h1>
-            <h2 className="contest__subtitle">{contest.car} - {contest.game}</h2>
+        <section className="contest">
+            <header className="contest-header">
+                <h1 className="contest-header__title">
+                    {contest.track} <span className="contest-header__subtitle">({contest.car} - {contest.game})</span>
+                </h1>
+            </header>
+
             <EntryList entries={contest.records} />
-        </div>
+        </section>
     );
 };
 

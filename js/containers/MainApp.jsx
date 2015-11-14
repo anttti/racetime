@@ -6,11 +6,10 @@ const MainApp = React.createClass({
     render() {
         return (
             <div>
-                <header className="header">
-                    <img src="images/tammerforce.png" className="logo" />
-                    <h1>Top 10</h1>
-                </header>
                 {this.props.children}
+                <footer className="footer">
+                    <img src="images/tammerforce.png" className="logo" />
+                </footer>
             </div>
         );
     }

@@ -8,13 +8,16 @@ const EntryList = ({ entries }) => {
         return <div className="loading">Loading...</div>;
     }
     return (
-        <ol className="entry-list">
-            {entries.map((entry, index) =>
-                <Entry key={index}
-                    name={entry.name}
-                    time={entry.time} />
-            )}
-        </ol>
+        <div className="entry-list">
+            <h1 className="entry-list__title">Lap Times</h1>
+            <ol className="entry-list__entries">
+                {entries.map((entry, index) =>
+                    <Entry key={index}
+                        name={entry.name}
+                        time={entry.time} />
+                )}
+            </ol>
+        </div>
     );
 };
 

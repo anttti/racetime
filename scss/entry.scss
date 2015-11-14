@@ -1,16 +1,22 @@
 .entry {
-    padding: 0.2rem;
-    cursor: pointer;
-
-    &:hover {
-        background: rgba(255, 255, 255, 0.5);
-    }
+    list-style: none;
+    text-align: center;
+    display: block;
+    font-family: "Rock Salt";
+    padding: 0.2rem 0.7rem;
+    background: white;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 0 3px rgba(0,0,0,0.2);
 }
+
+    .entry { transform: rotate(2.75deg); }
+    .entry:nth-child(2n) { transform: scale(1.05); }
+    .entry:nth-child(3n) { transform: rotate(-2.5deg); }
+    .entry:nth-child(5n) { transform: scale(1.1); }
 
     .entry__time {
         display: inline-block;
         margin-right: 0.5rem;
-        padding-left: 0.5rem;
         font-weight: bold;
     }
 
