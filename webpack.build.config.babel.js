@@ -1,6 +1,6 @@
-import webpack from "webpack";
+import generator from "./webpack-config-generator";
 
-export default require("./webpack-config-generator")({
+export default generator({
     jsLoaders: ["babel"],
     plugins: [],
     extends: {}

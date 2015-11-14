@@ -1,4 +1,5 @@
 import ExtractTextPlugin from "extract-text-webpack-plugin";
+import HtmlWebpackPlugin from "html-webpack-plugin";
 
 const generator = options => {
     const common = {
@@ -19,7 +20,12 @@ const generator = options => {
             extensions: ["", ".js", ".jsx"]
         },
         plugins: [
-            new ExtractTextPlugin("styles.css", { allChunks: true })
+            new ExtractTextPlugin("styles.css", { allChunks: true }),
+            new HtmlWebpackPlugin({
+                title: "Tammerforce Lap Times",
+                template: "index.html.template",
+                inject: "body"
+            })
         ].concat(options.plugins)
     };
 
