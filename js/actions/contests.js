@@ -9,7 +9,7 @@ import {
 import endpoints from "../constants/endpoints";
 
 const fetchContests = () => {
-    return (dispatch, getState) => {
+    return dispatch => {
         dispatch({ type: REQUEST_CONTESTS });
         return fetch(endpoints.contests())
             .then(req => req.json())

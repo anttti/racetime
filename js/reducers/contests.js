@@ -1,5 +1,4 @@
 import Immutable from "immutable";
-import _ from "lodash";
 
 import {
     REQUEST_CONTESTS,
