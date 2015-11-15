@@ -6,6 +6,7 @@ import MainApp from "containers/MainApp";
 import CarouselView from "containers/CarouselView";
 import SingleView from "containers/SingleView";
 import NewEntryView from "containers/NewEntryView";
+import InputView from "containers/InputView";
 import ContestsActions from "actions/contests";
 
 let carouselInterval;
@@ -29,6 +30,7 @@ export default store => {
                 <IndexRoute component={CarouselView} onEnter={onStartCarousel} onLeave={onLeaveCarousel} />
                 <Route path="add" component={NewEntryView} />
                 <Route path=":id" component={SingleView} />
+                <Route path=":id/add" component={InputView} />
             </Route>
         </ReduxRouter>
     );

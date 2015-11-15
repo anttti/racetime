@@ -1,0 +1,41 @@
+.select-contest-list {
+    list-style-type: none;
+}
+
+    .select-contest-list__item {
+        padding: 1rem;
+        text-align: center;
+        background: #c13d35;
+        color: white;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+    .select-contest-list__item:nth-child(6n+1) {
+        background: #c13d35;
+    }
+
+    .select-contest-list__item:nth-child(6n+2) {
+        background: lighten(#c13d35, 5%);
+    }
+
+    .select-contest-list__item:nth-child(6n+3) {
+        background: lighten(#c13d35, 10%);
+    }
+
+    .select-contest-list__item:nth-child(6n+4) {
+        background: lighten(#c13d35, 15%);
+    }
+
+    .select-contest-list__item:nth-child(6n+5) {
+        background: lighten(#c13d35, 10%);
+    }
+
+    .select-contest-list__item:nth-child(6n) {
+        background: lighten(#c13d35, 5%);
+    }
+
+        .select-contest-list__item-car {
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
