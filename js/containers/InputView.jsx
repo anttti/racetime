@@ -25,11 +25,14 @@ const InputView = React.createClass({
         }
     },
     render() {
+        if (!this.props.contest) {
+            return <div></div>;
+        }
         return (
             <div>
                 <Link to={`/add`} className="contest-header__title">
                     <header className="contest-header">
-                        ←
+                        ← {this.props.contest.get("track")}
                     </header>
                 </Link>
                 {this.getError()}
@@ -45,7 +48,10 @@ const InputView = React.createClass({
 });
 
 const select = state => {
+    const id = parseInt(state.router.params.id, 10);
+    const contest = state.contests.get("list").find(contest => contest.get("contestid") === id);
     return {
+        contest,
         entry: state.newEntry.get("entryData"),
         isValid: state.newEntry.get("isValid"),
         isFetching: state.newEntry.get("isFetching"),

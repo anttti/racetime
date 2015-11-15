@@ -8,7 +8,7 @@ const MainApp = React.createClass({
             <div>
                 {this.props.children}
                 <footer className="footer">
-                    <img src="images/tammerforce.png" className="logo" />
+                    <img src="/images/tammerforce.png" className="logo" />
                 </footer>
             </div>
         );

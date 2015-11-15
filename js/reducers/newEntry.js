@@ -4,7 +4,8 @@ import {
     UPDATE_ENTRY_LOCALLY,
     SAVING_ENTRY,
     ENTRY_SAVED,
-    ERROR_SAVING_ENTRY
+    ERROR_SAVING_ENTRY,
+    CANCEL_ENTRY
 } from "constants/types";
 
 const defaultState = Immutable.fromJS({
@@ -36,6 +37,8 @@ export default function newEntry(state = defaultState, action) {
                 isFetching: true,
                 errorMessage: action.payload
             });
+        case CANCEL_ENTRY:
+            return defaultState;
         default:
             return state;
     }

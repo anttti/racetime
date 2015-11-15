@@ -14,7 +14,10 @@
     .entry:nth-child(3n) { transform: rotate(-2.5deg); }
     .entry:nth-child(5n) { transform: scale(1.1); }
 
-    .entry--straight { transform: none; }
+    .entry--preview {
+        transform: none;
+        font-size: 60%;
+    }
 
     .entry__time {
         display: inline-block;

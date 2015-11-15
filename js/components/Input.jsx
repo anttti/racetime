@@ -8,7 +8,7 @@ const Input = props => {
 
     return (
         <div className="input">
-            <p className="entry entry--straight">{previewStr}</p>
+            <p className="entry entry--preview">{previewStr}</p>
             <form className="input__form" onSubmit={props.onSubmit}>
                 <label className="input__label">Time:</label>
                 <input name="time" className="input__field" type="number" min="1" max="9999999"
