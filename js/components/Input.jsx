@@ -4,18 +4,21 @@ import React from "react";
 import Time from "utils/time";
 
 const Input = props => {
-    const previewStr = Time.toString(Time.fromString(props.time));
+    const previewStr = `${Time.toString(Time.fromString(props.time))} ${props.name}`;
 
     return (
-        <div>
-            <p className="preview">{previewStr}</p>
-            <form className="form" onSubmit={props.onSubmit}>
-                <input name="time" className="input" type="number" min="1" max="9999999"
+        <div className="input">
+            <p className="entry entry--straight">{previewStr}</p>
+            <form className="input__form" onSubmit={props.onSubmit}>
+                <label className="input__label">Time:</label>
+                <input name="time" className="input__field" type="number" min="1" max="9999999"
                     placeholder="time" onChange={props.onChangeTime} value={props.time} />
-                <input name="name" className="input" type="text" placeholder="name"
+                <label className="input__label">Name:</label>
+                <input name="name" className="input__field" type="text" placeholder="name"
                     onChange={props.onChangeName} value={props.name} />
-                <input className="input__submit" type="submit"
-                    onClick={props.onSubmit} disabled={!props.isValid} />
+                <button className="pure-button input__button" onClick={props.onSubmit} disabled={!props.isValid}>
+                    Submit time
+                </button>
             </form>
         </div>
     );

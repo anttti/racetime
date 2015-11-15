@@ -1,0 +1,83 @@
+.input {
+    padding: 1rem;
+}
+
+    .input__label {
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+
+    .input__field {
+        display: block;
+        padding: 0.4rem;
+        width: 100%;
+        font-size: 17px;
+        border: 1px solid #bbb;
+        border-radius: 3px;
+        box-sizing: border-box;
+    }
+
+    .input__submit {
+        display: block;
+        margin: 1rem auto 0 auto;
+        padding: 0.4rem;
+        background: #c13d35;
+        color: white;
+        border: 0;
+        border-radius: 3px;
+        cursor: pointer;
+
+        &:disabled {
+            opacity: 0.3;
+        }
+    }
+
+    .input__button {
+        margin: 1rem auto;
+        display: block;
+        zoom: 1;
+        line-height: normal;
+        white-space: nowrap;
+        vertical-align: middle;
+        text-align: center;
+        cursor: pointer;
+        -webkit-user-drag: none;
+        user-select: none;
+        box-sizing: border-box;
+        font-family: inherit;
+        font-size: 100%;
+        padding: 0.5em 1em;
+        color: white;
+        border: 0;
+        border-radius: 3px;
+        background-color: #c13d35;
+        text-decoration: none;
+        border-radius: 2px;
+    }
+
+    .input__button::-moz-focus-inner {
+        padding: 0;
+        border: 0;
+    }
+
+    .input__button:hover,
+    .input__button:focus {
+        background-image: linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+    }
+
+    .input__button:focus {
+        outline: 0;
+    }
+
+    .input__button:active {
+        box-shadow: 0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset;
+        border-color: #000\9;
+    }
+
+    .input__button[disabled] {
+        border: none;
+        background-image: none;
+        opacity: 0.40;
+        cursor: not-allowed;
+        box-shadow: none;
+    }

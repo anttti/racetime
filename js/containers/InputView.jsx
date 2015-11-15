@@ -1,3 +1,5 @@
+import "scss/error.scss";
+
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router";
@@ -17,6 +19,11 @@ const InputView = React.createClass({
         const updatedEntry = this.props.entry.set(e.target.name, e.target.value);
         this.props.dispatch(NewEntryActions.updateEntryLocally(updatedEntry));
     },
+    getError() {
+        if (this.props.errorMessage) {
+            return <p className="error">{this.props.errorMessage}</p>;
+        }
+    },
     render() {
         return (
             <div>
@@ -25,7 +32,7 @@ const InputView = React.createClass({
                         ←
                     </header>
                 </Link>
-                {this.props.errorMessage}
+                {this.getError()}
                 <Input time={this.props.entry.get("time")}
                     name={this.props.entry.get("name")}
                     onChangeTime={this.onChangeField}
