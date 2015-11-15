@@ -1,26 +1,26 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import Contest from "components/Contest";
+import Leaderboard from "components/Leaderboard";
 
 const CarouselView = React.createClass({
     render() {
-        if (!this.props.currentContest) {
+        if (!this.props.currentLeaderboard) {
             return <h1>Loading...</h1>;
         }
-        return <Contest contest={this.props.currentContest} />;
+        return <Leaderboard leaderboard={this.props.currentLeaderboard} />;
     }
 });
 
 const select = state => {
-    const currentIndex = state.contests.get("currentIndex");
-    const contests = state.contests.get("list");
-    let currentContest;
-    if (contests.size > 0) {
-        currentContest = contests.get(currentIndex).toJS();
+    const currentIndex = state.leaderboards.get("currentIndex");
+    const leaderboards = state.leaderboards.get("list");
+    let currentLeaderboard;
+    if (leaderboards.size > 0) {
+        currentLeaderboard = leaderboards.get(currentIndex).toJS();
     }
     return {
-        currentContest: currentContest
+        currentLeaderboard: currentLeaderboard
     };
 };
 

@@ -9,10 +9,10 @@
 
     .input__field {
         display: block;
-        padding: 0.4rem;
+        padding: 0.6rem;
         width: 100%;
         font-size: 17px;
-        border: 1px solid #bbb;
+        border: 1px solid rgba(0,0,0,0.4);
         border-radius: 3px;
         box-sizing: border-box;
     }
@@ -80,4 +80,51 @@
         opacity: 0.40;
         cursor: not-allowed;
         box-shadow: none;
+    }
+
+    .react-autosuggest {
+        $font-size: 18px;
+        $border-color: #aaa;
+        $border-radius: 4px;
+
+        position: relative;
+
+        input {
+            &[aria-expanded="true"] {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        &__suggestions {
+            position: absolute;
+            top: 40px;
+            left: 1px;
+            right: 1px;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            border: 2px transparent;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            background-color: #fff;
+            font-size: $font-size;
+            border-bottom-left-radius: $border-radius;
+            border-bottom-right-radius: $border-radius;
+            z-index: 2;
+            box-sizing: border-box;
+        }
+
+        &__suggestion {
+            cursor: pointer;
+            padding: 0.6rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+
+            &--focused, &:hover {
+                background-color: rgba(0,0,0,0.1);
+            }
+        }
     }

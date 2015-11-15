@@ -1,15 +1,12 @@
-import _ from "lodash";
 import Immutable from "immutable";
 import chai from "chai";
-const should = chai.should();
 const expect = chai.expect;
 
 import {
-    REQUEST_CONTESTS,
-    RECEIVE_CONTESTS,
-    NEXT_CONTEST
+    RECEIVE_LEADERBOARDS,
+    NEXT_LEADERBOARD
 } from "../js/constants/types";
-import reducer from "../js/reducers/contests";
+import reducer from "../js/reducers/leaderboards";
 
 const defaultState = Immutable.fromJS({
     list: [],
@@ -17,9 +14,9 @@ const defaultState = Immutable.fromJS({
 });
 
 const response = {
-    "contests": [
+    "leaderboards": [
         {
-            "contestid": 2,
+            "id": 2,
             "game": "Forza 4",
             "car": "Acura NSX 2005",
             "track": "Bernese Alps",
@@ -37,7 +34,7 @@ const response = {
             ]
         },
         {
-            "contestid": 6,
+            "id": 6,
             "game": "Forza 4",
             "car": "Acura Integra Type-R 2001",
             "track": "Camino Viejo de Montserrat",
@@ -57,11 +54,11 @@ const response = {
     ]
 };
 
-describe("ContestList Reducer", () => {
-    it("should add contest list", () => {
+describe("LeaderboardList Reducer", () => {
+    it("should add leaderboard list", () => {
         const nextState = reducer(defaultState, {
-            type: RECEIVE_CONTESTS,
-            payload: response.contests
+            type: RECEIVE_LEADERBOARDS,
+            payload: response.leaderboards
         });
 
         const nextStateInJS = nextState.toJS();
@@ -72,13 +69,13 @@ describe("ContestList Reducer", () => {
 
     it("should rotate tracks", () => {
         let nextState = reducer(defaultState, {
-            type: RECEIVE_CONTESTS,
-            payload: response.contests
+            type: RECEIVE_LEADERBOARDS,
+            payload: response.leaderboards
         });
         expect(nextState.toJS().currentIndex).to.equal(0);
-        nextState = reducer(nextState, { type: NEXT_CONTEST });
+        nextState = reducer(nextState, { type: NEXT_LEADERBOARD });
         expect(nextState.toJS().currentIndex).to.equal(1);
-        nextState = reducer(nextState, { type: NEXT_CONTEST });
+        nextState = reducer(nextState, { type: NEXT_LEADERBOARD });
         expect(nextState.toJS().currentIndex).to.equal(0);
     });
 });

@@ -6,26 +6,26 @@ import { connect } from "react-redux";
 import * as NewEntryActions from "actions/newEntry";
 
 const NewEntryView = React.createClass({
-    onClickContest(id) {
+    onClickLeaderboard(id) {
         this.props.dispatch(NewEntryActions.cancelEntry());
         this.props.history.pushState(null, `/${id}/add`);
     },
     render() {
         return (
             <div>
-                <header className="contest-header">
-                    <h1 className="contest-header__title">Leaderboard</h1>
+                <header className="leaderboard-header">
+                    <h1 className="leaderboard-header__title">Leaderboard</h1>
                 </header>
-                <ul className="select-contest-list">
-                    {this.props.contests.map(contest =>
-                        <li className="select-contest-list__item"
-                            key={contest.get("contestid")}
-                            onClick={this.onClickContest.bind(null, contest.get("contestid"))}>
-                            <div className="select-contest-list__item-track">
-                                {contest.get("track")}
+                <ul className="select-leaderboard-list">
+                    {this.props.leaderboards.map(leaderboard =>
+                        <li className="select-leaderboard-list__item"
+                            key={leaderboard.get("id")}
+                            onClick={this.onClickLeaderboard.bind(null, leaderboard.get("id"))}>
+                            <div className="select-leaderboard-list__item-track">
+                                {leaderboard.get("track")}
                             </div>
-                            <div className="select-contest-list__item-car">
-                                {contest.get("car")}, {contest.get("game")}
+                            <div className="select-leaderboard-list__item-car">
+                                {leaderboard.get("car")}, {leaderboard.get("game")}
                             </div>
                         </li>
                     )}
@@ -37,7 +37,7 @@ const NewEntryView = React.createClass({
 
 const select = state => {
     return {
-        contests: state.contests.get("list")
+        leaderboards: state.leaderboards.get("list")
     };
 };
 

@@ -1,25 +1,25 @@
 import Immutable from "immutable";
 
 import {
-    REQUEST_CONTESTS,
-    RECEIVE_CONTESTS,
-    NEXT_CONTEST
-} from "constants/types";
+    REQUEST_LEADERBOARDS,
+    RECEIVE_LEADERBOARDS,
+    NEXT_LEADERBOARD
+} from "../constants/types";
 
 const defaultState = Immutable.fromJS({
     list: [],
     currentIndex: 0
 });
 
-export default function contests(state = defaultState, action) {
+export default function leaderboards(state = defaultState, action) {
     switch (action.type) {
-        case REQUEST_CONTESTS:
+        case REQUEST_LEADERBOARDS:
             return state;
-        case RECEIVE_CONTESTS:
+        case RECEIVE_LEADERBOARDS:
             return state.merge({
                 list: Immutable.fromJS(action.payload)
             });
-        case NEXT_CONTEST:
+        case NEXT_LEADERBOARD:
             const listSize = state.get("list").size;
             if (listSize === 0) {
                 return state;

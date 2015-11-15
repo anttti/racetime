@@ -7,17 +7,17 @@ import CarouselView from "containers/CarouselView";
 import SingleView from "containers/SingleView";
 import NewEntryView from "containers/NewEntryView";
 import InputView from "containers/InputView";
-import ContestsActions from "actions/contests";
+import LeaderboardsActions from "actions/leaderboards";
 
 let carouselInterval;
 
 export default store => {
     const onLoadApp = () => {
-        store.dispatch(ContestsActions.fetchContests());
+        store.dispatch(LeaderboardsActions.fetchLeaderboards());
     };
 
     const onStartCarousel = () => {
-        carouselInterval = setInterval(() => store.dispatch(ContestsActions.nextContest()), 5000);
+        carouselInterval = setInterval(() => store.dispatch(LeaderboardsActions.nextLeaderboard()), 5000);
     };
 
     const onLeaveCarousel = () => {

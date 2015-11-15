@@ -15,8 +15,12 @@ const InputView = React.createClass({
             this.props.entry
         ));
     },
-    onChangeField(e) {
-        const updatedEntry = this.props.entry.set(e.target.name, e.target.value);
+    onChangeTime(e) {
+        const updatedEntry = this.props.entry.set("time", e.target.value);
+        this.props.dispatch(NewEntryActions.updateEntryLocally(updatedEntry));
+    },
+    onChangeName(name) {
+        const updatedEntry = this.props.entry.set("name", name);
         this.props.dispatch(NewEntryActions.updateEntryLocally(updatedEntry));
     },
     getError() {
@@ -25,21 +29,21 @@ const InputView = React.createClass({
         }
     },
     render() {
-        if (!this.props.contest) {
+        if (!this.props.leaderboard) {
             return <div></div>;
         }
         return (
             <div>
-                <Link to={`/add`} className="contest-header__title">
-                    <header className="contest-header">
-                        ← {this.props.contest.get("track")}
+                <Link to={`/add`} className="leaderboard-header__title">
+                    <header className="leaderboard-header">
+                        ← {this.props.leaderboard.get("track")}
                     </header>
                 </Link>
                 {this.getError()}
                 <Input time={this.props.entry.get("time")}
                     name={this.props.entry.get("name")}
-                    onChangeTime={this.onChangeField}
-                    onChangeName={this.onChangeField}
+                    onChangeTime={this.onChangeTime}
+                    onChangeName={this.onChangeName}
                     onSubmit={this.onSubmit}
                     isValid={this.props.isValid}/>
             </div>
@@ -49,9 +53,9 @@ const InputView = React.createClass({
 
 const select = state => {
     const id = parseInt(state.router.params.id, 10);
-    const contest = state.contests.get("list").find(contest => contest.get("contestid") === id);
+    const leaderboard = state.leaderboards.get("list").find(leaderboard => leaderboard.get("id") === id);
     return {
-        contest,
+        leaderboard,
         entry: state.newEntry.get("entryData"),
         isValid: state.newEntry.get("isValid"),
         isFetching: state.newEntry.get("isFetching"),

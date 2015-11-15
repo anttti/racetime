@@ -1,8 +1,8 @@
-.select-contest-list {
+.select-leaderboard-list {
     list-style-type: none;
 }
 
-    .select-contest-list__item {
+    .select-leaderboard-list__item {
         padding: 1rem;
         text-align: center;
         background: #c13d35;
@@ -11,31 +11,31 @@
         font-size: 1rem;
     }
 
-    .select-contest-list__item:nth-child(6n+1) {
+    .select-leaderboard-list__item:nth-child(6n+1) {
         background: #c13d35;
     }
 
-    .select-contest-list__item:nth-child(6n+2) {
+    .select-leaderboard-list__item:nth-child(6n+2) {
         background: lighten(#c13d35, 5%);
     }
 
-    .select-contest-list__item:nth-child(6n+3) {
+    .select-leaderboard-list__item:nth-child(6n+3) {
         background: lighten(#c13d35, 10%);
     }
 
-    .select-contest-list__item:nth-child(6n+4) {
+    .select-leaderboard-list__item:nth-child(6n+4) {
         background: lighten(#c13d35, 15%);
     }
 
-    .select-contest-list__item:nth-child(6n+5) {
+    .select-leaderboard-list__item:nth-child(6n+5) {
         background: lighten(#c13d35, 10%);
     }
 
-    .select-contest-list__item:nth-child(6n) {
+    .select-leaderboard-list__item:nth-child(6n) {
         background: lighten(#c13d35, 5%);
     }
 
-        .select-contest-list__item-car {
+        .select-leaderboard-list__item-car {
             font-size: 0.8rem;
             opacity: 0.6;
         }

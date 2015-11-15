@@ -1,22 +1,22 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import Contest from "components/Contest";
+import Leaderboard from "components/Leaderboard";
 
 const SingleView = React.createClass({
     render() {
-        const contest = this.props.contest;
-        if (!contest) {
+        const leaderboard = this.props.leaderboard;
+        if (!leaderboard) {
             return <div>404!</div>;
         }
-        return <Contest contest={this.props.contest.toJS()} />;
+        return <Leaderboard leaderboard={this.props.leaderboard.toJS()} />;
     }
 });
 
 const select = state => {
     const id = parseInt(state.router.params.id, 10);
-    const contest = state.contests.get("list").find(contest => contest.get("contestid") === id);
-    return { contest };
+    const leaderboard = state.leaderboards.get("list").find(leaderboard => leaderboard.get("id") === id);
+    return { leaderboard };
 };
 
 export default connect(select)(SingleView);
