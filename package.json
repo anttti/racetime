@@ -5,8 +5,8 @@
   "main": "dummy-main.js",
   "scripts": {
     "test": "mocha --compilers js:babel/register test/",
-    "start": "webpack-dev-server",
-    "build": "rm -rf build && ./node_modules/.bin/webpack -p --progress --config webpack.build.config.babel.js && cp -r images build",
+    "start": "ENV=dev webpack-dev-server",
+    "build": "rm -rf build && ENV=production ./node_modules/.bin/webpack -p --progress --config webpack.build.config.babel.js && cp -r images build",
     "lint": "eslint js/ && jscs js/"
   },
   "author": "Antti Mattila",
