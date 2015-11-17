@@ -1,6 +1,7 @@
 import path from "path";
 import ExtractTextPlugin from "extract-text-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import webpack from "webpack";
 
 const generator = options => {
     const common = {
@@ -37,6 +38,10 @@ const generator = options => {
                 title: "Tammerforce Lap Times",
                 template: "index.html.template",
                 inject: "body"
+            }),
+            new webpack.DefinePlugin({
+                __DEV__: process.env.ENV !== "production",
+                __RELEASE__: process.env.ENV === "production"
             })
         ].concat(options.plugins)
     };
