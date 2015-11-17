@@ -1,5 +1,5 @@
-// const ROOT = "http://laptimes.tammerforce.com";
-const ROOT = "http://localhost:3000";
+const ROOT = "http://laptimes.tammerforce.com";
+//const ROOT = "http://localhost:3000";
 
 export default {
     leaderboards: () => `${ROOT}/v1/leaderboard`,
