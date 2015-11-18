@@ -13,11 +13,11 @@ const updateEntryLocally = props => {
     return { type: UPDATE_ENTRY_LOCALLY, payload: props };
 };
 
-const saveEntry = (memorialId, entryData) => {
+const saveEntry = (entryData) => {
     return dispatch => {
         dispatch({ type: SAVING_ENTRY });
 
-        fetch(endpoints.entry(memorialId), {
+        fetch(endpoints.entry(), {
                 method: "post",
                 headers: { "Accept": "application/json", "Content-Type": "application/json" },
                 body: JSON.stringify(entryData)

@@ -4,6 +4,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router";
 
+import Time from "utils/time";
 import Input from "components/Input";
 import * as NewEntryActions from "actions/newEntry";
 import * as PlayerActions from "actions/players";
@@ -14,10 +15,11 @@ const InputView = React.createClass({
     },
     onSubmit(e) {
         e.preventDefault();
-        this.props.dispatch(NewEntryActions.saveEntry(
-            this.props.routeParams.id,
-            this.props.entry
-        ));
+        this.props.dispatch(NewEntryActions.saveEntry({
+            leaderboardId: parseInt(this.props.routeParams.id, 10),
+            player: this.props.entry.get("name"),
+            time: Time.fromString(this.props.entry.get("time"))
+        }));
     },
     onChangeTime(e) {
         const updatedEntry = this.props.entry.set("time", e.target.value);
