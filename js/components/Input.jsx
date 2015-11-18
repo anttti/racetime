@@ -1,5 +1,6 @@
 import "scss/input.scss";
 
+import _ from "lodash";
 import React from "react";
 import Autosuggest from "react-autosuggest";
 import Time from "utils/time";
@@ -14,10 +15,10 @@ const Input = props => {
         onChange: props.onChangeName
     };
 
-    const nameList = ["Ralli-Pekka", "Matti Anttila", "Jope Ruonansuu", "Testo", "Raudo", "Mega-Man", "Sikari-Sakari"];
+    const playerNames = _.pluck(props.players, "name");
 
     const suggestions = (input, callback) => {
-        callback(null, filterNames(nameList, input));
+        callback(null, filterNames(playerNames, input));
     };
 
     return (
@@ -40,10 +41,11 @@ const Input = props => {
 Input.propTypes = {
     time: React.PropTypes.string,
     name: React.PropTypes.string,
-    onChangeTime: React.PropTypes.func,
-    onChangeName: React.PropTypes.func,
-    onSubmit: React.PropTypes.func,
-    isValid: React.PropTypes.bool
+    onChangeTime: React.PropTypes.func.isRequired,
+    onChangeName: React.PropTypes.func.isRequired,
+    onSubmit: React.PropTypes.func.isRequired,
+    isValid: React.PropTypes.bool,
+    players: React.PropTypes.array.isRequired
 };
 
 export default Input;

@@ -6,8 +6,12 @@ import { Link } from "react-router";
 
 import Input from "components/Input";
 import * as NewEntryActions from "actions/newEntry";
+import * as PlayerActions from "actions/players";
 
 const InputView = React.createClass({
+    componentWillMount() {
+        this.props.dispatch(PlayerActions.fetchPlayers());
+    },
     onSubmit(e) {
         e.preventDefault();
         this.props.dispatch(NewEntryActions.saveEntry(
@@ -28,6 +32,18 @@ const InputView = React.createClass({
             return <p className="error">{this.props.errorMessage}</p>;
         }
     },
+    getInput() {
+        if (this.props.players.size === 0) {
+            return <div className="loading">Loading...</div>;
+        }
+        return <Input time={this.props.entry.get("time")}
+            name={this.props.entry.get("name")}
+            onChangeTime={this.onChangeTime}
+            onChangeName={this.onChangeName}
+            onSubmit={this.onSubmit}
+            isValid={this.props.isValid}
+            players={this.props.players.toJS()} />;
+    },
     render() {
         if (!this.props.leaderboard) {
             return <div></div>;
@@ -40,12 +56,7 @@ const InputView = React.createClass({
                     </header>
                 </Link>
                 {this.getError()}
-                <Input time={this.props.entry.get("time")}
-                    name={this.props.entry.get("name")}
-                    onChangeTime={this.onChangeTime}
-                    onChangeName={this.onChangeName}
-                    onSubmit={this.onSubmit}
-                    isValid={this.props.isValid}/>
+                {this.getInput()}
             </div>
         );
     }
@@ -60,7 +71,8 @@ const select = state => {
         isValid: state.newEntry.get("isValid"),
         isFetching: state.newEntry.get("isFetching"),
         isError: state.newEntry.get("isError"),
-        errorMessage: state.newEntry.get("errorMessage")
+        errorMessage: state.newEntry.get("errorMessage"),
+        players: state.players.get("list")
     };
 };
 
