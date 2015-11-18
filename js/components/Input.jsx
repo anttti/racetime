@@ -21,9 +21,13 @@ const Input = props => {
         callback(null, filterNames(playerNames, input));
     };
 
+    const entryClasses = props.time && props.time.length > 0 ?
+        "entry entry--preview" :
+        "entry entry--preview entry--is-inactive";
+
     return (
         <div className="input">
-            <p className="entry entry--preview">{previewStr}</p>
+            <p className={entryClasses}>{previewStr}</p>
             <form className="input__form" onSubmit={props.onSubmit}>
                 <label className="input__label">Time:</label>
                 <input name="time" className="input__field" type="number" min="1" max="9999999"

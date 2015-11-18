@@ -20,6 +20,12 @@
     .entry--preview {
         transform: none;
         font-size: 60%;
+        opacity: 1;
+        transition: 0.2s all;
+    }
+
+    .entry--is-inactive {
+        opacity: 0;
     }
 
     .entry__time {
