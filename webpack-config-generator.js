@@ -40,8 +40,8 @@ const generator = options => {
                 inject: "body"
             }),
             new webpack.DefinePlugin({
-                __DEV__: process.env.ENV !== "production",
-                __RELEASE__: process.env.ENV === "production"
+                __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || "false")),
+                __PRODUCTION__: JSON.stringify(JSON.parse(process.env.BUILD_PRODUCTION || "false"))
             })
         ].concat(options.plugins)
     };
